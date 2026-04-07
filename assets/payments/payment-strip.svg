@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="30" viewBox="0 0 360 30" role="img" aria-label="Supported payments">
+  <rect width="360" height="30" fill="none"/>
+  <text x="8" y="21" font-family="Arial, sans-serif" font-size="16" font-style="italic" font-weight="700" fill="#1a56a3">VISA</text>
+  <text x="76" y="21" font-family="Arial, sans-serif" font-size="15" font-style="italic" font-weight="700" fill="#4f4f4f">UPI</text>
+  <text x="126" y="21" font-family="Arial, sans-serif" font-size="14" font-style="italic" font-weight="700" fill="#2f4b9a">RuPay</text>
+
+  <circle cx="188" cy="15" r="6" fill="#eb001b"/>
+  <circle cx="196" cy="15" r="6" fill="#f79e1b"/>
+
+  <circle cx="220" cy="15" r="7" fill="#0b6cb7"/>
+  <path d="M220 8 A7 7 0 0 0 220 22 Z" fill="#2ea8df"/>
+  <path d="M220 8 A7 7 0 0 1 220 22 Z" fill="#07588f"/>
+
+  <text x="234" y="13" font-family="Arial, sans-serif" font-size="6" fill="#4f4f4f">Diners Club</text>
+  <text x="234" y="22" font-family="Arial, sans-serif" font-size="6" fill="#4f4f4f">International</text>
+
+  <circle cx="307" cy="15" r="6" fill="#eb001b"/>
+  <circle cx="315" cy="15" r="6" fill="#f79e1b"/>
+  <rect x="311" y="9" width="3" height="12" fill="#ff5f00"/>
+
+  <rect x="335" y="8" width="16" height="14" fill="#2e77bc" rx="2"/>
+  <text x="343" y="14" text-anchor="middle" font-family="Arial, sans-serif" font-size="4" font-weight="700" fill="#fff">AMERICAN</text>
+  <text x="343" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="5" font-weight="700" fill="#fff">EXPRESS</text>
+</svg>

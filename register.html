@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register – Ecom Menswear</title>
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"/>
+  <link rel="stylesheet" href="css/register.css"/>
+</head>
+<body class="page-auth">
+
+  <!-- NAVBAR -->
+  <header class="navbar-top">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-icon"><img src="assets/logo.png" alt="Ecom logo"/></div>
+      <span class="logo-text">ECOM</span>
+    </a>
+    <div class="nav-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search"/>
+    </div>
+    <div class="nav-icons">
+      <a href="login.html"><i class="fa-regular fa-circle-user"></i></a>
+      <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+      <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+  </header>
+  <nav class="navbar-bottom">
+    <a href="index.html" class="active">Home</a>
+    <a href="#">New Arrivals</a>
+    <div class="nav-drop">
+      <a href="#" class="has-drop">Mens <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="drop-menu">
+        <a href="#">Shirts</a>
+        <a href="#">Kurtas</a>
+        <a href="#">Sherwanis</a>
+        <a href="#">T-Shirts</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <a href="#" class="has-drop">Kids <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="drop-menu">
+        <a href="#">Boys Wear</a>
+        <a href="#">Girls Wear</a>
+        <a href="#">Ethnic Sets</a>
+        <a href="#">Accessories</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- REGISTER SECTION -->
+  <main class="register-main">
+    <section class="register-wrap">
+      <div class="register-form-panel">
+        <div class="register-brand">
+          <h2>Create Account</h2>
+          <p>Join Ecom Menswear today</p>
+        </div>
+
+        <form class="register-form" onsubmit="return false;">
+        <div class="form-row-2">
+          <div class="form-group">
+            <label><i class="fa-solid fa-user"></i> First Name</label>
+            <input type="text" placeholder="First name"/>
+          </div>
+          <div class="form-group">
+            <label><i class="fa-solid fa-user"></i> Last Name</label>
+            <input type="text" placeholder="Last name"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fa-solid fa-envelope"></i> Email Address</label>
+          <input type="email" placeholder="Enter your email"/>
+        </div>
+        <div class="form-group">
+          <label><i class="fa-solid fa-mobile-screen"></i> Mobile Number</label>
+          <div class="input-prefix">
+            <span>+91</span>
+            <input type="tel" placeholder="10-digit mobile number"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fa-solid fa-lock"></i> Password</label>
+          <div class="input-eye">
+            <input type="password" id="regPass" placeholder="Create a strong password"/>
+            <button type="button" onclick="togglePass('regPass', this)"><i class="fa-regular fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label><i class="fa-solid fa-lock"></i> Confirm Password</label>
+          <div class="input-eye">
+            <input type="password" id="regPass2" placeholder="Repeat your password"/>
+            <button type="button" onclick="togglePass('regPass2', this)"><i class="fa-regular fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="checkbox-label">
+            <input type="checkbox"/> I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a>
+          </label>
+        </div>
+        <button type="submit" class="auth-btn">
+          <i class="fa-solid fa-user-plus"></i> Create Account
+        </button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="login.html">Sign In</a></p>
+      </div>
+
+      <div class="register-image-panel">
+        <img src="assets/images/hero-slide2-b.jpg" alt="Register visual"/>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER NORMAL -->
+  <footer class="footer-normal">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon sm"><img src="assets/logo.png" alt="Ecom logo"/></div>
+          <span>ECOM</span>
+        </div>
+        <p>Premium menswear crafted with tradition and modern elegance. Your style, our passion.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Mens Collection</a></li>
+          <li><a href="#">Steal Deal</a></li>
+          <li><a href="#">Tracking</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fa-solid fa-location-dot"></i> 00,madurai - 11</p>
+        <p><i class="fa-solid fa-phone"></i> +91 0000000000</p>
+        <p><i class="fa-solid fa-envelope"></i> support@ecom.com</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Your email"/>
+          <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FOOTER BOTTOM -->
+  <footer class="footer-bottom">
+    <span>&copy; 2025 Ecom Textiles</span>
+    <span class="footer-secure">
+      <i class="fa-solid fa-lock"></i> 100% Secure Powered By
+      <img class="razorpay-logo" src="assets/payments/razorpay.svg" alt="Razorpay"/>
+    </span>
+    <div class="footer-payments">
+      <img class="pay-strip" src="assets/payments/payment-strip.svg" alt="Accepted payment methods"/>
+    </div>
+  </footer>
+
+  <script src="js/register.js"></script>
+</body>
+</html>

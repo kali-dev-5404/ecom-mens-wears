@@ -1,0 +1,418 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ecom Menswear</title>
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"/>
+  <link rel="stylesheet" href="css/index.css"/>
+</head>
+<body class="page-home">
+
+  <!-- NAVBAR -->
+  <header class="navbar-top">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-icon">
+        <img src="assets/logo.png" alt="Ecom logo"/>
+      </div>
+      <span class="logo-text">ECOM</span>
+    </a>
+    <div class="nav-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search"/>
+    </div>
+    <div class="nav-icons">
+      <a href="login.html"><i class="fa-regular fa-circle-user"></i></a>
+      <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
+      <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+    </div>
+  </header>
+  <nav class="navbar-bottom">
+    <a href="index.html" class="active">Home</a>
+    <a href="#">New Arrivals</a>
+    <div class="nav-drop">
+      <a href="#" class="has-drop">Mens <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="drop-menu">
+        <a href="#">Shirts</a>
+        <a href="#">Kurtas</a>
+        <a href="#">Sherwanis</a>
+        <a href="#">T-Shirts</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <a href="#" class="has-drop">Kids <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="drop-menu">
+        <a href="#">Boys Wear</a>
+        <a href="#">Girls Wear</a>
+        <a href="#">Ethnic Sets</a>
+        <a href="#">Accessories</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <section class="hero-banner">
+    <button class="hero-arrow left" onclick="prevSlide()"><i class="fa-solid fa-chevron-left"></i></button>
+    
+    <div class="hero-slides">
+      <!-- Slide 1 -->
+      <div class="hero-slide slide-1 active">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-deco top"></div>
+            <h1>Men's <br/>Collection</h1>
+            <p>Premium ethnic & western wear for the modern man</p>
+            <a href="#" class="hero-btn">SHOP NOW</a>
+            <div class="hero-deco bottom"></div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-img-box">
+              <div class="hero-fabric-art">
+                <div class="fabric-fold f1"><img src="assets/images/hero-slide1-a.jpg" alt="Menswear style look"/></div>
+                <div class="fabric-fold f2"><img src="assets/images/hero-slide1-b.jpg" alt="Traditional wear closeup"/></div>
+                <div class="fabric-fold f3"><img src="assets/images/hero-slide1-c.jpg" alt="Premium fabric detail"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide slide-2">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-deco top"></div>
+            <h1>Festive <br/>Wear</h1>
+            <p>Elegant sherwanis and traditional attire for celebrations</p>
+            <a href="#" class="hero-btn">EXPLORE NOW</a>
+            <div class="hero-deco bottom"></div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-img-box">
+              <div class="hero-fabric-art">
+                <div class="fabric-fold f1"><img src="assets/images/hero-slide2-a.jpg" alt="Festive menswear look"/></div>
+                <div class="fabric-fold f2"><img src="assets/images/hero-slide2-b.jpg" alt="Festive outfit detail"/></div>
+                <div class="fabric-fold f3"><img src="assets/images/hero-slide2-c.jpg" alt="Festive fabric texture"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide slide-3">
+        <div class="hero-content">
+          <div class="hero-text">
+            <div class="hero-deco top"></div>
+            <h1>Summer <br/>Essentials</h1>
+            <p>Stay cool with our lightweight and breathable collections</p>
+            <a href="#" class="hero-btn">DISCOVER MORE</a>
+            <div class="hero-deco bottom"></div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-img-box">
+              <div class="hero-fabric-art">
+                <div class="fabric-fold f1"><img src="assets/images/hero-slide3-a.jpg" alt="Summer menswear"/></div>
+                <div class="fabric-fold f2"><img src="assets/images/hero-slide3-b.jpg" alt="Lightweight fashion look"/></div>
+                <div class="fabric-fold f3"><img src="assets/images/hero-slide3-c.jpg" alt="Breathable fabric closeup"/></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="hero-arrow right" onclick="nextSlide()"><i class="fa-solid fa-chevron-right"></i></button>
+    
+    <div class="hero-dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section categories-section">
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="categories-grid">
+      <div class="cat-card">
+        <div class="cat-icon"><i class="fa-solid fa-shirt"></i></div>
+        <span>Kurtas</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon"><i class="fa-solid fa-vest"></i></div>
+        <span>Sherwanis</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon"><i class="fa-solid fa-person"></i></div>
+        <span>Dhotis</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon"><i class="fa-solid fa-mitten"></i></div>
+        <span>Accessories</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon"><i class="fa-solid fa-hat-cowboy"></i></div>
+        <span>Ethnic Sets</span>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon"><i class="fa-solid fa-gem"></i></div>
+        <span>Festive Wear</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PRODUCTS -->
+  <section class="section products-section">
+    <h2 class="section-title">New Arrivals</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-placeholder"><img src="assets/images/product-kurta-main.jpg" data-hover-src="assets/images/product-kurta-hover.jpg" alt="Luxury Silk Kurta"/></div>
+          <div class="product-badge">New</div>
+          <div class="product-actions">
+            <button><i class="fa-regular fa-heart"></i></button>
+            <button class="quick-view-btn" type="button" onclick="openQuickView(this)"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h4>Luxury Silk Kurta</h4>
+          <p class="product-sub">Men's Ethnic</p>
+          <div class="product-price">
+            <span class="price-new">₹1,299</span>
+            <span class="price-old">₹1,899</span>
+            <span class="price-off">32% off</span>
+          </div>
+          <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-placeholder"><img src="assets/images/product-sherwani-main.jpg" data-hover-src="assets/images/product-sherwani-hover.jpg" alt="Banarasi Sherwani"/></div>
+          <div class="product-badge sale">Sale</div>
+          <div class="product-actions">
+            <button><i class="fa-regular fa-heart"></i></button>
+            <button class="quick-view-btn" type="button" onclick="openQuickView(this)"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h4>Banarasi Sherwani</h4>
+          <p class="product-sub">Festive Wear</p>
+          <div class="product-price">
+            <span class="price-new">₹3,499</span>
+            <span class="price-old">₹5,200</span>
+            <span class="price-off">33% off</span>
+          </div>
+          <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-placeholder"><img src="assets/images/product-dhoti-main.jpg" data-hover-src="assets/images/product-dhoti-hover.jpg" alt="Pure Cotton Dhoti"/></div>
+          <div class="product-badge">New</div>
+          <div class="product-actions">
+            <button><i class="fa-regular fa-heart"></i></button>
+            <button class="quick-view-btn" type="button" onclick="openQuickView(this)"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h4>Pure Cotton Dhoti</h4>
+          <p class="product-sub">Traditional</p>
+          <div class="product-price">
+            <span class="price-new">₹799</span>
+            <span class="price-old">₹1,100</span>
+            <span class="price-off">27% off</span>
+          </div>
+          <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-placeholder"><img src="assets/images/product-wedding-main.jpg" data-hover-src="assets/images/product-wedding-hover.jpg" alt="Wedding Kurta Set"/></div>
+          <div class="product-badge sale">Hot</div>
+          <div class="product-actions">
+            <button><i class="fa-regular fa-heart"></i></button>
+            <button class="quick-view-btn" type="button" onclick="openQuickView(this)"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h4>Wedding Kurta Set</h4>
+          <p class="product-sub">Bridal Collection</p>
+          <div class="product-price">
+            <span class="price-new">₹2,499</span>
+            <span class="price-old">₹3,800</span>
+            <span class="price-off">34% off</span>
+          </div>
+          <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-placeholder"><img src="assets/images/product-sherwani-main.jpg" data-hover-src="assets/images/product-sherwani-hover.jpg" alt="Banarasi Sherwani"/></div>
+          <div class="product-badge sale">Sale</div>
+          <div class="product-actions">
+            <button><i class="fa-regular fa-heart"></i></button>
+            <button class="quick-view-btn" type="button" onclick="openQuickView(this)"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h4>Banarasi Sherwani</h4>
+          <p class="product-sub">Festive Wear</p>
+          <div class="product-price">
+            <span class="price-new">₹3,499</span>
+            <span class="price-old">₹5,200</span>
+            <span class="price-off">33% off</span>
+          </div>
+          <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img">
+          <div class="product-placeholder"><img src="assets/images/product-kurta-main.jpg" data-hover-src="assets/images/product-kurta-hover.jpg" alt="Luxury Silk Kurta"/></div>
+          <div class="product-badge">New</div>
+          <div class="product-actions">
+            <button><i class="fa-regular fa-heart"></i></button>
+            <button class="quick-view-btn" type="button" onclick="openQuickView(this)"><i class="fa-solid fa-eye"></i></button>
+          </div>
+        </div>
+        <div class="product-info">
+          <h4>Luxury Silk Kurta</h4>
+          <p class="product-sub">Men's Ethnic</p>
+          <div class="product-price">
+            <span class="price-new">₹1,299</span>
+            <span class="price-old">₹1,899</span>
+            <span class="price-off">32% off</span>
+          </div>
+          <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+        </div>
+      </div>
+
+    </div>
+    
+  </section>
+
+  <!-- PROMO BANNER -->
+  <section class="promo-banner">
+    <div class="promo-inner">
+      <div class="promo-text">
+        <span class="promo-tag">Limited Time</span>
+        <h2>Steal Deal of the Week</h2>
+        <p>Up to 50% off on select men's ethnic wear. Hurry, stock is limited!</p>
+        <a href="#" class="promo-btn">VIEW ALL DEALS</a>
+      </div>
+      <div class="promo-countdown">
+        <div class="count-box"><span id="promoHours">08</span><label>Hours</label></div>
+        <div class="count-sep">:</div>
+        <div class="count-box"><span id="promoMins">34</span><label>Mins</label></div>
+        <div class="count-sep">:</div>
+        <div class="count-box"><span id="promoSecs">52</span><label>Secs</label></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="quickview-overlay" id="quickViewOverlay" onclick="closeQuickView(event)">
+    <div class="quickview-modal">
+      <button class="quickview-close" type="button" aria-label="Close" onclick="closeQuickView()">&times;</button>
+      <div class="quickview-left">
+        <button class="quickview-nav prev" type="button" onclick="swapQuickViewImage('prev')"><i class="fa-solid fa-chevron-left"></i></button>
+        <img id="quickViewImage" src="" alt="Product preview"/>
+        <button class="quickview-nav next" type="button" onclick="swapQuickViewImage('next')"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="quickview-right">
+        <h3 id="quickViewTitle"></h3>
+        <div class="quickview-price-row">
+          <span id="quickViewPriceNew" class="qv-price-new"></span>
+          <span id="quickViewPriceOld" class="qv-price-old"></span>
+          <span id="quickViewBadge" class="qv-badge">SALE</span>
+        </div>
+        <p id="quickViewType" class="qv-type"></p>
+        <p class="qv-stock"><i class="fa-solid fa-circle"></i> Only 3 left</p>
+
+        <p class="qv-size-label">Size: <strong>M</strong></p>
+        <div class="qv-size-row">
+          <button type="button">S</button>
+          <button type="button" class="active">M</button>
+          <button type="button">L</button>
+          <button type="button">XL</button>
+          <button type="button">XXL</button>
+        </div>
+
+        <p class="qv-qty-label">Quantity</p>
+        <div class="qv-footer-row">
+          <div class="qv-qty-box">
+            <button type="button" onclick="changeQuickQty(-1)">-</button>
+            <span id="quickViewQty">1</span>
+            <button type="button" onclick="changeQuickQty(1)">+</button>
+          </div>
+          <button type="button" class="qv-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add To Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER NORMAL -->
+  <footer class="footer-normal">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon sm"><img src="assets/logo.png" alt="Ecom logo"/></div>
+          <span>ECOM</span>
+        </div>
+        <p>Premium menswear crafted with tradition and modern elegance. Your style, our passion.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Mens Collection</a></li>
+          <li><a href="#">Steal Deal</a></li>
+          <li><a href="#">Tracking</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fa-solid fa-location-dot"></i> 00,madurai - 11</p>
+        <p><i class="fa-solid fa-phone"></i> +91 0000000000</p>
+        <p><i class="fa-solid fa-envelope"></i> support@ecom.com</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Your email"/>
+          <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FOOTER BOTTOM (like reference img 3) -->
+  <footer class="footer-bottom">
+    <span>&copy; 2025 Ecom</span>
+    <span class="footer-secure">
+      <i class="fa-solid fa-lock"></i> 100% Secure Powered By
+      <img class="razorpay-logo" src="assets/payments/razorpay.svg" alt="Razorpay"/>
+    </span>
+    <div class="footer-payments">
+      <img class="pay-strip" src="assets/payments/payment-strip.svg" alt="Accepted payment methods"/>
+    </div>
+  </footer>
+
+  <script src="js/index.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112" height="22" viewBox="0 0 112 22" role="img" aria-label="Razorpay">
+  <rect width="112" height="22" fill="none"/>
+  <path d="M13.5 2 L6 20 L11.8 20 L19.2 2 Z" fill="#2b64f6"/>
+  <path d="M19 2 L11.8 20 L17.6 20 L25 2 Z" fill="#0a3bb5"/>
+  <text x="33" y="15" font-family="Arial, sans-serif" font-size="14" font-style="italic" font-weight="700" fill="#0a3bb5">Razorpay</text>
+</svg>
