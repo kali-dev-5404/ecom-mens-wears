@@ -128,14 +128,85 @@ input { outline: none; font-family: var(--font-body); }
   gap: 22px;
 }
 
-.nav-icons i, .nav-icons a {
+.nav-icon-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-icons > a,
+.nav-icons > .account-wrap > a,
+.nav-icons > a i,
+.nav-icons > .account-wrap > a i {
   font-size: 20px;
   color: var(--text-mid);
   cursor: pointer;
   transition: var(--transition);
 }
 
-.nav-icons i:hover, .nav-icons a:hover { color: var(--primary); }
+.nav-icons > a:hover,
+.nav-icons > .account-wrap > a:hover,
+.nav-icons > a:hover i,
+.nav-icons > .account-wrap > a:hover i { color: var(--primary); }
+
+.nav-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--white);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+  padding: 0 4px;
+  font-weight: 700;
+}
+
+.account-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.account-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 130px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: var(--transition);
+  z-index: 130;
+}
+
+.account-wrap.logged-in.open .account-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.account-dropdown a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: var(--text-mid);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.account-dropdown a:hover {
+  background: var(--primary-bg);
+  color: var(--primary-dark);
+}
 
 /* ==============================
    NAVBAR BOTTOM (GREEN NAV)

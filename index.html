@@ -23,9 +23,23 @@
       <input type="text" placeholder="Search"/>
     </div>
     <div class="nav-icons">
-      <a href="login.html"><i class="fa-regular fa-circle-user"></i></a>
-      <a href="wishlist.html"><i class="fa-regular fa-heart"></i></a>
-      <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+      <a class="nav-icon-link" href="wishlist.html" aria-label="Wishlist">
+        <i class="fa-regular fa-heart"></i>
+        <span class="nav-count" data-type="wishlist">0</span>
+      </a>
+      <a class="nav-icon-link" href="cart.html" aria-label="Cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="nav-count" data-type="cart">0</span>
+      </a>
+      <div class="account-wrap">
+        <a class="nav-icon-link account-trigger" href="login.html" aria-label="Account">
+          <i class="fa-regular fa-circle-user"></i>
+        </a>
+        <div class="account-dropdown">
+          <a href="#">Settings</a>
+          <a href="#" data-action="logout">Logout</a>
+        </div>
+      </div>
     </div>
   </header>
   <nav class="navbar-bottom">
@@ -412,6 +426,7 @@
     </div>
   </footer>
 
+  <script src="js/common.js"></script>
   <script src="js/index.js"></script>
 </body>
 </html>

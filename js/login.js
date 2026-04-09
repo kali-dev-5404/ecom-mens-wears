@@ -30,6 +30,15 @@ function sendOtp() {
   }
 }
 
+const loginForm = document.querySelector('.login-form');
+if (loginForm) {
+  loginForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    localStorage.setItem('ecomLoggedIn', 'true');
+    document.location.href = 'index.html';
+  });
+}
+
 window.togglePass = togglePass;
 window.setLoginMode = setLoginMode;
 window.sendOtp = sendOtp;
