@@ -71,7 +71,7 @@
       <div class="cart-grid">
         <div class="panel">
           <h2>Items in Cart</h2>
-          <div class="cart-item">
+          <div class="cart-item" data-product="kurta">
             <img class="cart-thumb" src="assets/images/product-kurta-main.jpg" alt="Luxury Silk Kurta"/>
             <div>
               <h3>Luxury Silk Kurta</h3>
@@ -83,14 +83,17 @@
             </div>
             <div class="cart-actions">
               <div class="qty-box">
-                <button type="button">-</button>
-                <span>1</span>
-                <button type="button">+</button>
+                <button type="button" aria-label="Decrease quantity">-</button>
+                <span class="cart-qty">1</span>
+                <button type="button" aria-label="Increase quantity">+</button>
               </div>
+              <button type="button" class="remove-cart-btn" data-product="kurta" aria-label="Remove from cart">
+                <i class="fa-solid fa-trash"></i>
+              </button>
             </div>
           </div>
 
-          <div class="cart-item">
+          <div class="cart-item" data-product="sherwani">
             <img class="cart-thumb" src="assets/images/product-sherwani-main.jpg" alt="Banarasi Sherwani"/>
             <div>
               <h3>Banarasi Sherwani</h3>
@@ -102,12 +105,17 @@
             </div>
             <div class="cart-actions">
               <div class="qty-box">
-                <button type="button">-</button>
-                <span>2</span>
-                <button type="button">+</button>
+                <button type="button" aria-label="Decrease quantity">-</button>
+                <span class="cart-qty">2</span>
+                <button type="button" aria-label="Increase quantity">+</button>
               </div>
+              <button type="button" class="remove-cart-btn" data-product="sherwani" aria-label="Remove from cart">
+                <i class="fa-solid fa-trash"></i>
+              </button>
             </div>
           </div>
+
+          <p class="store-empty-note cart-empty-note" hidden>Your cart is empty. Add products to continue shopping.</p>
 
           <div class="action-row">
             <a class="small-btn" href="index.html">Continue Shopping</a>

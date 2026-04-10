@@ -67,9 +67,21 @@ document.querySelectorAll('.product-placeholder img[data-hover-src]').forEach((i
   card.addEventListener('mouseleave', () => {
     img.src = img.dataset.mainSrc;
   });
+
+  card.addEventListener('click', (event) => {
+    if (event.target.closest('.product-actions button, .add-cart-btn, .qv-cart-btn')) {
+      return;
+    }
+    const productKey = card.dataset.product || 'kurta';
+    window.location.href = `product-details.html?product=${encodeURIComponent(productKey)}`;
+  });
 });
 
-function openQuickView(btn) {
+function openQuickView(event, btn) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
   const card = btn.closest('.product-card');
   const img = card.querySelector('.product-placeholder img');
   const title = card.querySelector('.product-info h4')?.textContent?.trim() || 'Product';

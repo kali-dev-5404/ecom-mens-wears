@@ -69,7 +69,7 @@
 
     <section class="store-content">
       <div class="wishlist-grid">
-        <div class="wishlist-item">
+        <div class="wishlist-item" data-product="wedding">
           <img class="wishlist-thumb" src="assets/images/product-wedding-main.jpg" alt="Wedding Kurta Set"/>
           <div>
             <h3>Wedding Kurta Set</h3>
@@ -79,13 +79,15 @@
               <span class="old">₹3,800</span>
             </div>
             <div class="action-row">
-              <a class="small-btn" href="cart.html">Move to Cart</a>
-              <a class="small-btn" href="#">Remove</a>
+              <a class="small-btn move-to-cart-btn" data-product="wedding" href="cart.html">Move to Cart</a>
+              <button type="button" class="remove-wishlist-btn" data-product="wedding" aria-label="Remove from wishlist">
+                <i class="fa-solid fa-trash"></i>
+              </button>
             </div>
           </div>
         </div>
 
-        <div class="wishlist-item">
+        <div class="wishlist-item" data-product="dhoti">
           <img class="wishlist-thumb" src="assets/images/product-dhoti-main.jpg" alt="Pure Cotton Dhoti"/>
           <div>
             <h3>Pure Cotton Dhoti</h3>
@@ -95,12 +97,15 @@
               <span class="old">₹1,100</span>
             </div>
             <div class="action-row">
-              <a class="small-btn" href="cart.html">Move to Cart</a>
-              <a class="small-btn" href="#">Remove</a>
+              <a class="small-btn move-to-cart-btn" data-product="dhoti" href="cart.html">Move to Cart</a>
+              <button type="button" class="remove-wishlist-btn" data-product="dhoti" aria-label="Remove from wishlist">
+                <i class="fa-solid fa-trash"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
+      <p class="store-empty-note wishlist-empty-note" hidden>Your wishlist is empty. Save items you love to see them here.</p>
     </section>
   </main>
 

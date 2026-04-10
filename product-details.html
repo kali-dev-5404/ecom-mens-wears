@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details - Ecom Menswear</title>
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"/>
+  <link rel="stylesheet" href="css/product-details.css"/>
+</head>
+<body class="page-product">
+  <header class="navbar-top">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-icon"><img src="assets/logo.png" alt="Ecom logo"/></div>
+      <span class="logo-text">ECOM</span>
+    </a>
+    <div class="nav-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search"/>
+    </div>
+    <div class="nav-icons">
+      <a class="nav-icon-link" href="wishlist.html" aria-label="Wishlist">
+        <i class="fa-regular fa-heart"></i>
+        <span class="nav-count" data-type="wishlist">0</span>
+      </a>
+      <a class="nav-icon-link" href="cart.html" aria-label="Cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="nav-count" data-type="cart">0</span>
+      </a>
+      <div class="account-wrap">
+        <a class="nav-icon-link account-trigger" href="login.html" aria-label="Account">
+          <i class="fa-regular fa-circle-user"></i>
+        </a>
+        <div class="account-dropdown">
+          <a href="#">Settings</a>
+          <a href="#" data-action="logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar-bottom">
+    <a href="index.html" class="active">Home</a>
+    <a href="#">New Arrivals</a>
+    <div class="nav-drop">
+      <a href="#" class="has-drop">Mens <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="drop-menu">
+        <a href="#">Shirts</a>
+        <a href="#">Kurtas</a>
+        <a href="#">Sherwanis</a>
+        <a href="#">T-Shirts</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <a href="#" class="has-drop">Kids <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="drop-menu">
+        <a href="#">Boys Wear</a>
+        <a href="#">Girls Wear</a>
+        <a href="#">Ethnic Sets</a>
+        <a href="#">Accessories</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pd-main">
+    <p class="pd-breadcrumb">
+      <a href="index.html">Home</a>
+      <span>/</span>
+      <a href="index.html">All Products</a>
+      <span>/</span>
+      <span id="pdBread">Product</span>
+    </p>
+
+    <section class="pd-top">
+      <div class="pd-gallery">
+        <div class="pd-main-image-wrap">
+          <button type="button" class="pd-gallery-expand" aria-label="Expand image">
+            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+          </button>
+          <button type="button" class="pd-gallery-nav prev" aria-label="Previous image" onclick="changeMainImageByStep(-1)">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <img id="pdMainImage" src="assets/images/product-kurta-main.jpg" alt="Product image"/>
+          <button type="button" class="pd-gallery-nav next" aria-label="Next image" onclick="changeMainImageByStep(1)">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+        <div class="pd-thumbnails">
+          <img class="pd-thumb active" src="assets/images/product-kurta-main.jpg" alt="Thumb 1" onclick="changeMainImage(this)"/>
+          <img class="pd-thumb" src="assets/images/product-kurta-hover.jpg" alt="Thumb 2" onclick="changeMainImage(this)"/>
+          <img class="pd-thumb" src="assets/images/product-sherwani-main.jpg" alt="Thumb 3" onclick="changeMainImage(this)"/>
+          <img class="pd-thumb" src="assets/images/product-dhoti-main.jpg" alt="Thumb 4" onclick="changeMainImage(this)"/>
+        </div>
+      </div>
+
+      <div class="pd-info">
+        <div class="pd-title-row">
+          <div>
+            <h1 id="pdTitle">Luxury Silk Kurta</h1>
+            <div class="pd-price-row">
+              <span class="pd-new" id="pdNew">Rs. 1299.00</span>
+              <span class="pd-old" id="pdOld">Rs. 1899.00</span>
+              <span class="pd-sale">SALE</span>
+            </div>
+          </div>
+          <div class="pd-top-icons">
+            <button type="button" class="pd-icon" id="pdWishlistBtn" aria-label="Add to wishlist"><i class="fa-regular fa-heart"></i></button>
+            <button type="button" class="pd-icon" id="pdShareBtn" aria-label="Share product"><i class="fa-solid fa-share-nodes"></i></button>
+          </div>
+        </div>
+
+        <p class="pd-sku">SKU: <span id="pdSku">LVSHIRT-016</span></p>
+
+        <div class="pd-size-section">
+          <div class="pd-size-top-row">
+            <p class="pd-size-label">Size: <strong id="pdSizeText">S</strong></p>
+            <button type="button" class="pd-size-guide-btn" onclick="openSizeGuide()">
+              <i class="fa-solid fa-ruler"></i> Size Guide
+            </button>
+          </div>
+          <div class="pd-sizes" id="pdSizes">
+            <button type="button" class="active">S</button>
+            <button type="button">M</button>
+            <button type="button">L</button>
+            <button type="button">XL</button>
+            <button type="button">XXL</button>
+          </div>
+        </div>
+
+        <p class="pd-stock">Only <strong id="pdStock">2</strong> item(s) left in stock!</p>
+        <div class="pd-stock-line"><span></span></div>
+
+        <div class="pd-actions">
+          <button type="button" class="pd-add add-cart-btn">Add To Cart</button>
+          <button type="button" class="pd-buy">Buy It Now</button>
+        </div>
+
+        <div class="pd-info-items">
+          <div class="pd-info-item">
+            <i class="fa-solid fa-info-circle"></i>
+            <div>
+              <h4>Disclaimer</h4>
+              <p>Product color may slightly vary due to photographic lighting sources or your monitor settings</p>
+            </div>
+          </div>
+          <div class="pd-info-item">
+            <i class="fa-solid fa-truck"></i>
+            <div>
+              <h4>Estimated Delivery</h4>
+              <p>Apr 14 - Apr 18</p>
+            </div>
+          </div>
+          <div class="pd-info-item">
+            <i class="fa-solid fa-undo"></i>
+            <div>
+              <h4>Returns & Exchanges</h4>
+              <p>Accepted only for prepaid orders within 2 days from the date of delivery. Note: COD orders are not eligible for return or replacement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pd-accordions">
+      <details open>
+        <summary>Product description</summary>
+        <p>Premium quality fabric with comfortable fit for everyday and festive wear.</p>
+      </details>
+      <details>
+        <summary>Shipping</summary>
+        <p>Estimated delivery in 4 to 7 business days across India.</p>
+      </details>
+      <details>
+        <summary>Replacements & Exchanges</summary>
+        <p>Replacement and exchange available for eligible orders based on policy.</p>
+      </details>
+    </section>
+
+    <section class="pd-reviews">
+      <div class="hero-deco top"></div>
+      <h2>Customer Reviews</h2>
+      <div class="pd-review-card">
+        <div class="pd-review-rating">
+          <div class="pd-review-stars" aria-label="5 out of 5 stars">
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <p>Be the first to write a review</p>
+        </div>
+        <div class="pd-review-divider" aria-hidden="true"></div>
+        <button type="button" class="pd-review-btn">Write a Review</button>
+      </div>
+    </section>
+
+    <section class="pd-related">
+      <div class="hero-deco top"></div>
+      <h2>You May Also Like</h2>
+      <div class="pd-related-grid">
+        <div class="product-card" data-product="wedding">
+          <div class="product-img">
+            <div class="product-placeholder"><img src="assets/images/product-wedding-main.jpg" data-hover-src="assets/images/product-wedding-hover.jpg" alt="Wedding Kurta Set"/></div>
+            <div class="product-badge sale">Hot</div>
+            <div class="product-actions">
+              <button type="button"><i class="fa-regular fa-heart"></i></button>
+              <button class="quick-view-btn" type="button" onclick="openQuickView(event,this)"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h4>Wedding Kurta Set</h4>
+            <p class="product-sub">Bridal Collection</p>
+            <div class="product-price">
+              <span class="price-new">₹2,499</span>
+              <span class="price-old">₹3,800</span>
+              <span class="price-off">34% off</span>
+            </div>
+            <button type="button" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card" data-product="sherwani">
+          <div class="product-img">
+            <div class="product-placeholder"><img src="assets/images/product-sherwani-main.jpg" data-hover-src="assets/images/product-sherwani-hover.jpg" alt="Banarasi Sherwani"/></div>
+            <div class="product-badge sale">Sale</div>
+            <div class="product-actions">
+              <button type="button"><i class="fa-regular fa-heart"></i></button>
+              <button class="quick-view-btn" type="button" onclick="openQuickView(event,this)"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h4>Banarasi Sherwani</h4>
+            <p class="product-sub">Festive Wear</p>
+            <div class="product-price">
+              <span class="price-new">₹3,499</span>
+              <span class="price-old">₹5,200</span>
+              <span class="price-off">33% off</span>
+            </div>
+            <button type="button" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card" data-product="kurta">
+          <div class="product-img">
+            <div class="product-placeholder"><img src="assets/images/product-kurta-main.jpg" data-hover-src="assets/images/product-kurta-hover.jpg" alt="Luxury Silk Kurta"/></div>
+            <div class="product-badge">New</div>
+            <div class="product-actions">
+              <button type="button"><i class="fa-regular fa-heart"></i></button>
+              <button class="quick-view-btn" type="button" onclick="openQuickView(event,this)"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h4>Luxury Silk Kurta</h4>
+            <p class="product-sub">Men's Ethnic</p>
+            <div class="product-price">
+              <span class="price-new">₹1,299</span>
+              <span class="price-old">₹1,899</span>
+              <span class="price-off">32% off</span>
+            </div>
+            <button type="button" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card" data-product="dhoti">
+          <div class="product-img">
+            <div class="product-placeholder"><img src="assets/images/product-dhoti-main.jpg" data-hover-src="assets/images/product-dhoti-hover.jpg" alt="Pure Cotton Dhoti"/></div>
+            <div class="product-badge">New</div>
+            <div class="product-actions">
+              <button type="button"><i class="fa-regular fa-heart"></i></button>
+              <button class="quick-view-btn" type="button" onclick="openQuickView(event,this)"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h4>Pure Cotton Dhoti</h4>
+            <p class="product-sub">Traditional</p>
+            <div class="product-price">
+              <span class="price-new">₹799</span>
+              <span class="price-old">₹1,100</span>
+              <span class="price-off">27% off</span>
+            </div>
+            <button type="button" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card" data-product="kurta">
+          <div class="product-img">
+            <div class="product-placeholder"><img src="assets/images/product-kurta-main.jpg" data-hover-src="assets/images/product-kurta-hover.jpg" alt="Classic Kurta Combo"/></div>
+            <div class="product-badge">New</div>
+            <div class="product-actions">
+              <button type="button"><i class="fa-regular fa-heart"></i></button>
+              <button class="quick-view-btn" type="button" onclick="openQuickView(event,this)"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h4>Classic Kurta Combo</h4>
+            <p class="product-sub">Men's Ethnic</p>
+            <div class="product-price">
+              <span class="price-new">₹1,499</span>
+              <span class="price-old">₹2,099</span>
+              <span class="price-off">29% off</span>
+            </div>
+            <button type="button" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </div>
+        <div class="product-card" data-product="sherwani">
+          <div class="product-img">
+            <div class="product-placeholder"><img src="assets/images/product-sherwani-main.jpg" data-hover-src="assets/images/product-sherwani-hover.jpg" alt="Royal Sherwani Set"/></div>
+            <div class="product-badge sale">Sale</div>
+            <div class="product-actions">
+              <button type="button"><i class="fa-regular fa-heart"></i></button>
+              <button class="quick-view-btn" type="button" onclick="openQuickView(event,this)"><i class="fa-solid fa-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h4>Royal Sherwani Set</h4>
+            <p class="product-sub">Festive Wear</p>
+            <div class="product-price">
+              <span class="price-new">₹3,899</span>
+              <span class="price-old">₹5,699</span>
+              <span class="price-off">32% off</span>
+            </div>
+            <button type="button" class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-normal">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          <div class="logo-icon sm"><img src="assets/logo.png" alt="Ecom logo"/></div>
+          <span>ECOM</span>
+        </div>
+        <p>Premium menswear crafted with tradition and modern elegance. Your style, our passion.</p>
+        <div class="footer-social">
+          <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">New Arrivals</a></li>
+          <li><a href="#">Mens Collection</a></li>
+          <li><a href="#">Steal Deal</a></li>
+          <li><a href="#">Tracking</a></li>
+          <li><a href="#">About Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Return Policy</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contact</h4>
+        <p><i class="fa-solid fa-location-dot"></i> 00,madurai - 11</p>
+        <p><i class="fa-solid fa-phone"></i> +91 0000000000</p>
+        <p><i class="fa-solid fa-envelope"></i> support@ecom.com</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Your email"/>
+          <button><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <footer class="footer-bottom">
+    <span>&copy; 2025 Ecom</span>
+    <span class="footer-secure">
+      <i class="fa-solid fa-lock"></i> 100% Secure Powered By
+      <img class="razorpay-logo" src="assets/payments/razorpay.svg" alt="Razorpay"/>
+    </span>
+    <div class="footer-payments">
+      <img class="pay-strip" src="assets/payments/payment-strip.svg" alt="Accepted payment methods"/>
+    </div>
+  </footer>
+
+  <div class="quickview-overlay" id="quickViewOverlay" onclick="closeQuickView(event)">
+    <div class="quickview-modal">
+      <button class="quickview-close" type="button" aria-label="Close" onclick="closeQuickView()">&times;</button>
+      <div class="quickview-left">
+        <button class="quickview-nav prev" type="button" onclick="swapQuickViewImage('prev')"><i class="fa-solid fa-chevron-left"></i></button>
+        <img id="quickViewImage" src="" alt="Product preview"/>
+        <button class="quickview-nav next" type="button" onclick="swapQuickViewImage('next')"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="quickview-right">
+        <h3 id="quickViewTitle"></h3>
+        <div class="quickview-price-row">
+          <span id="quickViewPriceNew" class="qv-price-new"></span>
+          <span id="quickViewPriceOld" class="qv-price-old"></span>
+          <span id="quickViewBadge" class="qv-badge">SALE</span>
+        </div>
+        <p id="quickViewType" class="qv-type"></p>
+        <p class="qv-stock"><i class="fa-solid fa-circle"></i> Only 3 left</p>
+
+        <p class="qv-size-label">Size: <strong>M</strong></p>
+        <div class="qv-size-row">
+          <button type="button">S</button>
+          <button type="button" class="active">M</button>
+          <button type="button">L</button>
+          <button type="button">XL</button>
+          <button type="button">XXL</button>
+        </div>
+
+        <p class="qv-qty-label">Quantity</p>
+        <div class="qv-footer-row">
+          <div class="qv-qty-box">
+            <button type="button" onclick="changeQuickQty(-1)">-</button>
+            <span id="quickViewQty">1</span>
+            <button type="button" onclick="changeQuickQty(1)">+</button>
+          </div>
+          <button type="button" class="qv-cart-btn"><i class="fa-solid fa-cart-plus"></i> Add To Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="size-guide-modal" id="sizeGuideModal" onclick="closeSizeGuide(event)">
+    <div class="size-guide-modal-content">
+      <button class="size-guide-close" onclick="closeSizeGuide()">&times;</button>
+      <h2>Size Guide</h2>
+      <table class="size-table">
+        <tr>
+          <th>Size</th>
+          <th>Chest</th>
+          <th>Length</th>
+          <th>Sleeve</th>
+        </tr>
+        <tr>
+          <td>S</td>
+          <td>36"</td>
+          <td>28"</td>
+          <td>24"</td>
+        </tr>
+        <tr>
+          <td>M</td>
+          <td>38"</td>
+          <td>29"</td>
+          <td>25"</td>
+        </tr>
+        <tr>
+          <td>L</td>
+          <td>40"</td>
+          <td>30"</td>
+          <td>26"</td>
+        </tr>
+        <tr>
+          <td>XL</td>
+          <td>42"</td>
+          <td>31"</td>
+          <td>27"</td>
+        </tr>
+        <tr>
+          <td>XXL</td>
+          <td>44"</td>
+          <td>32"</td>
+          <td>28"</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script src="js/common.js"></script>
+  <script src="js/product-details.js"></script>
+  <script>
+    const quickViewState = {
+      images: [],
+      index: 0,
+      qty: 1,
+    };
+
+    function openQuickView(event, btn) {
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      const card = btn.closest('.product-card');
+      if (!card) return;
+
+      const img = card.querySelector('.product-placeholder img');
+      const title = card.querySelector('.product-info h4')?.textContent?.trim() || 'Product';
+      const type = card.querySelector('.product-sub')?.textContent?.trim() || 'Menswear';
+      const priceNew = card.querySelector('.price-new')?.textContent?.trim() || 'Rs. 0';
+      const priceOld = card.querySelector('.price-old')?.textContent?.trim() || '';
+      const badge = card.querySelector('.product-badge')?.textContent?.trim() || 'SALE';
+
+      quickViewState.images = [img?.src || '', img?.dataset?.hoverSrc || img?.src || ''];
+      quickViewState.index = 0;
+      quickViewState.qty = 1;
+
+      document.getElementById('quickViewImage').src = quickViewState.images[0];
+      document.getElementById('quickViewTitle').textContent = title;
+      document.getElementById('quickViewType').textContent = `Product Type - ${type}  Brand - Ecom  Fabric - Cotton Blend`;
+      document.getElementById('quickViewPriceNew').textContent = priceNew;
+      document.getElementById('quickViewPriceOld').textContent = priceOld;
+      document.getElementById('quickViewBadge').textContent = badge.toUpperCase();
+      document.getElementById('quickViewQty').textContent = '1';
+
+      document.getElementById('quickViewOverlay').classList.add('active');
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeQuickView(event) {
+      const overlay = document.getElementById('quickViewOverlay');
+      if (!event || event.target.id === 'quickViewOverlay') {
+        overlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+      }
+    }
+
+    function swapQuickViewImage(direction) {
+      if (!quickViewState.images.length) return;
+      if (direction === 'next') {
+        quickViewState.index = (quickViewState.index + 1) % quickViewState.images.length;
+      } else {
+        quickViewState.index = (quickViewState.index - 1 + quickViewState.images.length) % quickViewState.images.length;
+      }
+      document.getElementById('quickViewImage').src = quickViewState.images[quickViewState.index];
+    }
+
+    function changeQuickQty(delta) {
+      quickViewState.qty = Math.max(1, quickViewState.qty + delta);
+      document.getElementById('quickViewQty').textContent = String(quickViewState.qty);
+    }
+
+    function getThumbs() {
+      return Array.from(document.querySelectorAll('.pd-thumb'));
+    }
+
+    function setActiveThumbBySrc(src) {
+      const thumbs = getThumbs();
+      thumbs.forEach((thumb) => {
+        const isActive = thumb.src === src;
+        thumb.classList.toggle('active', isActive);
+      });
+    }
+
+    function changeMainImage(thumbEl) {
+      if (!thumbEl) return;
+      const mainImage = document.getElementById('pdMainImage');
+      if (!mainImage) return;
+      mainImage.src = thumbEl.src;
+      setActiveThumbBySrc(thumbEl.src);
+    }
+
+    function changeMainImageByStep(step) {
+      const thumbs = getThumbs();
+      const mainImage = document.getElementById('pdMainImage');
+      if (!thumbs.length || !mainImage) return;
+
+      let currentIndex = thumbs.findIndex((thumb) => thumb.src === mainImage.src);
+      if (currentIndex < 0) currentIndex = 0;
+
+      const nextIndex = (currentIndex + step + thumbs.length) % thumbs.length;
+      mainImage.src = thumbs[nextIndex].src;
+      setActiveThumbBySrc(mainImage.src);
+    }
+
+    setActiveThumbBySrc(document.getElementById('pdMainImage')?.src || '');
+
+    window.openQuickView = openQuickView;
+    window.closeQuickView = closeQuickView;
+    window.swapQuickViewImage = swapQuickViewImage;
+    window.changeQuickQty = changeQuickQty;
+    window.changeMainImage = changeMainImage;
+    window.changeMainImageByStep = changeMainImageByStep;
+  </script>
+</body>
+</html>

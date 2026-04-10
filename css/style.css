@@ -665,6 +665,7 @@ input { outline: none; font-family: var(--font-body); }
   overflow: hidden;
   border: 1.5px solid var(--border);
   transition: var(--transition);
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -723,11 +724,12 @@ body.no-scroll {
   flex-direction: column;
   gap: 6px;
   opacity: 0;
-  transform: translateX(10px);
+  transform: translateX(10px) scale(0.96);
   transition: var(--transition);
+  pointer-events: none;
 }
 
-.product-card:hover .product-actions { opacity: 1; transform: translateX(0); }
+.product-card:hover .product-actions { opacity: 1; transform: translateX(0) scale(1); pointer-events: auto; }
 
 .product-actions button {
   width: 34px; height: 34px;
@@ -740,7 +742,7 @@ body.no-scroll {
   transition: var(--transition);
 }
 
-.product-actions button:hover { background: var(--primary); color: var(--white); }
+.product-actions button:hover { background: var(--primary); color: var(--white); transform: translateY(-2px) scale(1.05); }
 
 .quickview-overlay {
   position: fixed;
@@ -784,9 +786,13 @@ body.no-scroll {
   position: relative;
   background: #f7f7f7;
   height: 100%;
+  min-height: 560px;
+  overflow: hidden;
 }
 
 .quickview-left img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -815,7 +821,7 @@ body.no-scroll {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 .quickview-right h3 {
@@ -905,7 +911,7 @@ body.no-scroll {
   display: flex;
   align-items: center;
   gap: 18px;
-  margin-top: 200px;
+  margin-top: auto;
 }
 
 .qv-qty-box {
@@ -957,10 +963,11 @@ body.no-scroll {
   .quickview-modal {
     grid-template-columns: 1fr;
     max-height: 94vh;
-    overflow-y: auto;
+    overflow: hidden;
   }
 
   .quickview-left {
+    height: 330px;
     min-height: 330px;
   }
 
