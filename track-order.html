@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Checkout – Ecom Menswear</title>
+  <title>Track Order – Ecom Menswear</title>
   <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"/>
-  <link rel="stylesheet" href="css/store.css"/>
+  <link rel="stylesheet" href="css/orders.css"/>
 </head>
-<body class="page-store">
+<body class="page-orders" id="trackOrderPage">
   <header class="navbar-top">
     <a class="nav-logo" href="index.html">
       <div class="logo-icon"><img src="assets/logo.png" alt="Ecom logo"/></div>
@@ -39,6 +39,7 @@
       </div>
     </div>
   </header>
+
   <nav class="navbar-bottom">
     <a href="index.html">Home</a>
     <a href="#">New Arrivals</a>
@@ -62,66 +63,60 @@
     </div>
   </nav>
 
-  <main class="store-shell">
-    <section class="store-hero">
-      <h1>Checkout</h1>
-      <p>Complete your shipping and payment details to place the order.</p>
+  <main class="orders-shell">
+    <section class="orders-hero track-hero">
+      <div class="track-hero-head">
+        <div class="track-hero-left">
+          <a class="track-back-link" href="order-list.html" aria-label="Back to order list">
+            <i class="fa-solid fa-angle-left"></i>
+          </a>
+          <h2 class="track-hero-sub">Order Details</h2>
+        </div>
+        <a class="invoice-btn" href="#" id="downloadInvoiceBtn">
+          <i class="fa-solid fa-file-arrow-down"></i>
+          <span>Download Invoice</span>
+        </a>
+      </div>
     </section>
 
-    <section class="store-content">
-      <div class="checkout-grid">
-        <div class="panel">
-          <h2>Shipping Details</h2>
-          <form class="checkout-form" onsubmit="return false;">
-            <div class="form-row-2">
-              <div class="form-group">
-                <label><i class="fa-solid fa-user"></i> First Name</label>
-                <input type="text" placeholder="First name"/>
-              </div>
-              <div class="form-group">
-                <label><i class="fa-solid fa-user"></i> Last Name</label>
-                <input type="text" placeholder="Last name"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label><i class="fa-solid fa-location-dot"></i> Address</label>
-              <input type="text" placeholder="House no, street, area"/>
-            </div>
-            <div class="form-row-2">
-              <div class="form-group">
-                <label><i class="fa-solid fa-city"></i> City</label>
-                <input type="text" placeholder="City"/>
-              </div>
-              <div class="form-group">
-                <label><i class="fa-solid fa-map-pin"></i> Pincode</label>
-                <input type="text" placeholder="Pincode"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label><i class="fa-solid fa-phone"></i> Mobile Number</label>
-              <input type="tel" placeholder="Mobile number"/>
-            </div>
-          </form>
-        </div>
+    <section class="orders-content">
+      <div class="track-stack">
+        <section class="track-panel order-details-strip">
+          <div class="order-detail-cell">
+            <span>Order ID</span>
+            <strong id="trackOrderId">-</strong>
+          </div>
+          <div class="order-detail-cell">
+            <span>Order Placed Date</span>
+            <strong id="trackOrderDate">-</strong>
+          </div>
+          <div class="order-detail-cell">
+            <span>Order Delivery Date</span>
+            <strong id="trackDeliveryDate">-</strong>
+          </div>
+          <div class="order-detail-cell">
+            <span>No. of Items</span>
+            <strong id="trackItemCount">-</strong>
+          </div>
+          <div class="order-detail-cell">
+            <span>Status</span>
+            <strong id="trackOrderStatus">-</strong>
+          </div>
+        </section>
 
-        <div class="panel">
-          <h2>Order Summary</h2>
-          <div class="summary-list">
-            <div class="summary-row"><span>Luxury Silk Kurta</span><span>₹1,299</span></div>
-            <div class="summary-row"><span>Banarasi Sherwani</span><span>₹3,499</span></div>
-            <div class="summary-row"><span>Shipping</span><span>₹99</span></div>
-            <div class="summary-row total"><span>Total</span><span>₹4,897</span></div>
-          </div>
-          <p class="checkout-note">By placing the order, you agree to our terms and confirm the shipping details are correct.</p>
-          <div class="action-row">
-            <a class="small-btn" href="order-success.html">Place Order</a>
-          </div>
-        </div>
+        <section class="track-panel progress-panel">
+          <h2 id="progressCurrentLabel">Ordered</h2>
+          <div id="statusLine" class="status-line status-line-horizontal"></div>
+        </section>
+
+        <section class="track-panel items-panel">
+          <h2>Ordered Items</h2>
+          <div id="trackItemsList" class="track-items-list"></div>
+        </section>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER NORMAL -->
   <footer class="footer-normal">
     <div class="footer-grid">
       <div class="footer-brand">
@@ -144,7 +139,7 @@
           <li><a href="#">Mens Collection</a></li>
           <li><a href="#">Steal Deal</a></li>
           <li><a href="track-order.html">Tracking</a></li>
-          <li><a href="#">About Us</a></li>
+          <li><a href="order-list.html">My Orders</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -175,7 +170,8 @@
     <span class="footer-secure"><i class="fa-solid fa-lock"></i> 100% Secure Powered By <img class="razorpay-logo" src="assets/payments/razorpay.svg" alt="Razorpay"/></span>
     <div class="footer-payments"><img class="pay-strip" src="assets/payments/payment-strip.svg" alt="Accepted payment methods"/></div>
   </footer>
+
   <script src="js/common.js"></script>
+  <script src="js/orders.js"></script>
 </body>
 </html>
-
