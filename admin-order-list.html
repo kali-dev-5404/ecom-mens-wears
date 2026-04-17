@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Orders – Ecom Menswear</title>
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"/>
+  <link rel="stylesheet" href="css/admin-orders.css"/>
+</head>
+<body class="page-admin-orders">
+  <header class="navbar-top">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-icon"><img src="assets/logo.png" alt="Ecom logo"/></div>
+      <span class="logo-text">ECOM</span>
+    </a>
+    <div class="nav-icons">
+      <a class="nav-icon-link" href="#" aria-label="Notifications">
+        <i class="fa-regular fa-bell"></i>
+        <span class="nav-count">3</span>
+      </a>
+      <div class="account-wrap">
+        <a class="nav-icon-link account-trigger" href="login.html" aria-label="Account">
+          <i class="fa-regular fa-circle-user"></i>
+        </a>
+        <div class="account-dropdown">
+          <a href="#">Settings</a>
+          <a href="order-list.html">My Orders</a>
+          <a href="#" data-action="logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-layout">
+    <aside class="admin-sidebar">
+      <h2>Admin Panel</h2>
+      <p>Operations</p>
+      <nav class="admin-side-nav" aria-label="Admin sidebar">
+        <a href="#"><i class="fa-solid fa-table-columns"></i><span>Dashboard</span></a>
+        <a class="active" href="admin-order-list.html"><i class="fa-solid fa-box"></i><span>Orders</span></a>
+        <a href="#"><i class="fa-solid fa-users"></i><span>Customers</span></a>
+        <a href="#"><i class="fa-solid fa-chart-line"></i><span>Reports</span></a>
+        <a href="#"><i class="fa-solid fa-percent"></i><span>Coupons</span></a>
+        <a href="#"><i class="fa-solid fa-gear"></i><span>Settings</span></a>
+      </nav>
+
+      <section class="admin-side-insights" aria-label="Revenue insights">
+        <h3>Revenue Snapshot</h3>
+        <div class="admin-revenue-cards">
+          <article class="admin-revenue-card">
+            <span>Gross Revenue</span>
+            <strong id="adminRevenueGross">₹0</strong>
+          </article>
+          <article class="admin-revenue-card">
+            <span>Delivered Revenue</span>
+            <strong id="adminRevenueDelivered">₹0</strong>
+          </article>
+        </div>
+
+        <div class="admin-mini-chart" role="img" aria-label="Revenue distribution by order status">
+          <div class="mini-bar-row">
+            <span>Delivered</span>
+            <div class="mini-bar-track"><span id="revBarDelivered" class="mini-bar-fill delivered"></span></div>
+          </div>
+          <div class="mini-bar-row">
+            <span>Shipped</span>
+            <div class="mini-bar-track"><span id="revBarShipped" class="mini-bar-fill shipped"></span></div>
+          </div>
+          <div class="mini-bar-row">
+            <span>Processing</span>
+            <div class="mini-bar-track"><span id="revBarProcessing" class="mini-bar-fill processing"></span></div>
+          </div>
+          <div class="mini-bar-row">
+            <span>Cancelled</span>
+            <div class="mini-bar-track"><span id="revBarCancelled" class="mini-bar-fill cancelled"></span></div>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <section class="admin-shell">
+      <section class="admin-hero">
+        <h1>Admin Order Dashboard</h1>
+        <p>Manage all customer orders, check delivery status, and jump to live tracking.</p>
+      </section>
+
+      <section class="admin-content">
+        <div class="admin-stats">
+          <div class="admin-stat"><span>Total Orders</span><strong id="adminStatTotal">0</strong></div>
+          <div class="admin-stat"><span>Delivered</span><strong id="adminStatDelivered">0</strong></div>
+          <div class="admin-stat"><span>Shipped</span><strong id="adminStatShipped">0</strong></div>
+          <div class="admin-stat"><span>Processing</span><strong id="adminStatPending">0</strong></div>
+        </div>
+
+        <div class="admin-toolbar">
+          <div class="admin-filters" id="adminStatusFilter">
+            <button type="button" class="admin-filter-btn active" data-admin-status="all">All</button>
+            <button type="button" class="admin-filter-btn" data-admin-status="processing">Processing</button>
+            <button type="button" class="admin-filter-btn" data-admin-status="shipped">Shipped</button>
+            <button type="button" class="admin-filter-btn" data-admin-status="delivered">Delivered</button>
+            <button type="button" class="admin-filter-btn" data-admin-status="cancelled">Cancelled</button>
+          </div>
+
+          <label class="admin-search" aria-label="Search orders">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input id="adminOrderSearch" type="text" placeholder="Search by order, customer, courier, status"/>
+          </label>
+        </div>
+
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Placed</th>
+                <th>Delivery</th>
+                <th>Items</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="adminOrdersRoot"></tbody>
+          </table>
+        </div>
+
+        <div class="admin-pagination" id="adminPagination" aria-label="Orders pagination"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="admin-mini-footer">
+    <p>Admin Console | ECOM Menswear</p>
+    <span>Updated in real-time from order activity</span>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/orders.js"></script>
+</body>
+</html>

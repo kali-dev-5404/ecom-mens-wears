@@ -1,6 +1,7 @@
 const ORDERS_DATA = [
   {
     id: 'ECO10982',
+    customer: 'Arun Kumar',
     date: '08 Apr 2026',
     deliveryDate: '11 Apr 2026',
     status: 'delivered',
@@ -9,6 +10,12 @@ const ORDERS_DATA = [
     address: '14, South Masi Street, Madurai, Tamil Nadu - 625001',
     courier: 'Delhivery',
     trackingNo: 'DLV921344210',
+    timeline: [
+      { label: 'Ordered', time: '08 Apr 2026 • 09:05 AM' },
+      { label: 'Shipped', time: '09 Apr 2026 • 11:20 AM' },
+      { label: 'Out for delivery', time: '11 Apr 2026 • 08:40 AM' },
+      { label: 'Delivered', time: '11 Apr 2026 • 06:15 PM' }
+    ],
     items: [
       { title: 'Luxury Silk Kurta', qty: 1, size: 'M', price: 1299, image: 'assets/images/product-kurta-main.jpg' },
       { title: 'Pure Cotton Dhoti', qty: 2, size: 'L', price: 799, image: 'assets/images/product-dhoti-main.jpg' }
@@ -16,6 +23,7 @@ const ORDERS_DATA = [
   },
   {
     id: 'ECO10977',
+    customer: 'Naveen Raj',
     date: '06 Apr 2026',
     deliveryDate: '13 Apr 2026',
     status: 'shipped',
@@ -24,12 +32,19 @@ const ORDERS_DATA = [
     address: '14, South Masi Street, Madurai, Tamil Nadu - 625001',
     courier: 'Blue Dart',
     trackingNo: 'BD948102101',
+    timeline: [
+      { label: 'Ordered', time: '06 Apr 2026 • 10:00 AM' },
+      { label: 'Shipped', time: '08 Apr 2026 • 04:30 PM' },
+      { label: 'Out for delivery', time: '13 Apr 2026 • 09:15 AM' },
+      { label: 'Delivered', time: '13 Apr 2026 • 05:45 PM' }
+    ],
     items: [
       { title: 'Banarasi Sherwani', qty: 1, size: 'L', price: 3499, image: 'assets/images/product-sherwani-main.jpg' }
     ]
   },
   {
     id: 'ECO10965',
+    customer: 'Pradeep M',
     date: '03 Apr 2026',
     deliveryDate: '15 Apr 2026',
     status: 'processing',
@@ -38,12 +53,19 @@ const ORDERS_DATA = [
     address: '14, South Masi Street, Madurai, Tamil Nadu - 625001',
     courier: 'Yet to assign',
     trackingNo: 'Will be generated soon',
+    timeline: [
+      { label: 'Ordered', time: '03 Apr 2026 • 09:10 AM' },
+      { label: 'Shipped', time: '05 Apr 2026 • 12:00 PM' },
+      { label: 'Out for delivery', time: '15 Apr 2026 • 09:30 AM' },
+      { label: 'Delivered', time: '15 Apr 2026 • 05:30 PM' }
+    ],
     items: [
       { title: 'Wedding Kurta Set', qty: 1, size: 'M', price: 2499, image: 'assets/images/product-wedding-main.jpg' }
     ]
   },
   {
     id: 'ECO10931',
+    customer: 'Vignesh S',
     date: '28 Mar 2026',
     deliveryDate: 'Cancelled',
     status: 'cancelled',
@@ -52,6 +74,12 @@ const ORDERS_DATA = [
     address: '14, South Masi Street, Madurai, Tamil Nadu - 625001',
     courier: 'Not applicable',
     trackingNo: 'Not applicable',
+    timeline: [
+      { label: 'Ordered', time: '28 Mar 2026 • 11:00 AM' },
+      { label: 'Shipped', time: '29 Mar 2026 • 03:30 PM' },
+      { label: 'Out for delivery', time: '31 Mar 2026 • 10:00 AM' },
+      { label: 'Delivered', time: '31 Mar 2026 • 06:00 PM' }
+    ],
     items: [
       { title: 'Luxury Silk Kurta', qty: 1, size: 'S', price: 1299, image: 'assets/images/product-kurta-main.jpg' }
     ]
@@ -184,10 +212,25 @@ function renderTrackPage() {
     { label: 'Delivered', icon: 'fa-house' }
   ];
 
-  const renderSteps = (status) => {
+  const renderSteps = (order) => {
     if (!statusLine) return;
-    const activeIndex = getProgressIndex(status);
-    const progressPercent = status === 'cancelled' ? 0 : activeIndex * 25;
+    const activeIndex = getProgressIndex(order.status);
+    const progressPercent = order.status === 'cancelled' ? 0 : activeIndex * 25;
+    const timeline = Array.isArray(order.timeline) && order.timeline.length === steps.length
+      ? order.timeline
+      : steps.map((step, index) => {
+        const defaultTimes = [
+          `${order.date} • 09:00 AM`,
+          `${order.date} • 11:30 AM`,
+          `${order.deliveryDate || order.eta} • 08:30 AM`,
+          `${order.deliveryDate || order.eta} • 06:00 PM`
+        ];
+
+        return {
+          label: step.label,
+          time: defaultTimes[index]
+        };
+      });
 
     statusLine.innerHTML = `<div class="status-progress-bar" style="width:${progressPercent}%"></div>${steps.map((step, index) => {
       const isDone = index < activeIndex;
@@ -199,6 +242,7 @@ function renderTrackPage() {
           <span class="progress-icon"><i class="fa-solid ${step.icon}"></i></span>
           <span class="progress-dot"></span>
           <span class="progress-label">${step.label}</span>
+          <span class="progress-meta">${timeline[index]?.time || ''}</span>
         </article>
       `;
     }).join('')}`;
@@ -238,7 +282,7 @@ function renderTrackPage() {
     orderDateText.textContent = order.date;
     orderDeliveryDateText.textContent = order.deliveryDate || order.eta;
     orderItemCountText.textContent = String(totalItems);
-    renderSteps(order.status);
+    renderSteps(order);
     renderItems(order);
   };
 
@@ -255,5 +299,190 @@ function renderTrackPage() {
   }
 }
 
+function renderAdminOrderListPage() {
+  const tableRoot = document.getElementById('adminOrdersRoot');
+  if (!tableRoot) return;
+
+  const statusButtons = Array.from(document.querySelectorAll('[data-admin-status]'));
+  const searchInput = document.getElementById('adminOrderSearch');
+  const paginationRoot = document.getElementById('adminPagination');
+  const totalCountNode = document.getElementById('adminStatTotal');
+  const deliveredCountNode = document.getElementById('adminStatDelivered');
+  const shippedCountNode = document.getElementById('adminStatShipped');
+  const pendingCountNode = document.getElementById('adminStatPending');
+  const grossRevenueNode = document.getElementById('adminRevenueGross');
+  const deliveredRevenueNode = document.getElementById('adminRevenueDelivered');
+  const barDelivered = document.getElementById('revBarDelivered');
+  const barShipped = document.getElementById('revBarShipped');
+  const barProcessing = document.getElementById('revBarProcessing');
+  const barCancelled = document.getElementById('revBarCancelled');
+
+  let activeStatus = 'all';
+  let query = '';
+  let currentPage = 1;
+  const pageSize = 4;
+
+  const getFilteredOrders = () => ORDERS_DATA.filter((order) => {
+    const statusMatch = activeStatus === 'all' || order.status === activeStatus;
+    const queryMatch = !query
+      || order.id.toLowerCase().includes(query)
+      || (order.customer || '').toLowerCase().includes(query)
+      || (order.courier || '').toLowerCase().includes(query)
+      || order.status.toLowerCase().includes(query);
+    return statusMatch && queryMatch;
+  });
+
+  const syncStats = () => {
+    const statusTotals = {
+      delivered: 0,
+      shipped: 0,
+      processing: 0,
+      cancelled: 0
+    };
+
+    ORDERS_DATA.forEach((order) => {
+      const value = Number(String(order.total).replace(/[^\d.]/g, '')) || 0;
+      if (Object.prototype.hasOwnProperty.call(statusTotals, order.status)) {
+        statusTotals[order.status] += value;
+      }
+    });
+
+    const grossRevenue = statusTotals.delivered + statusTotals.shipped + statusTotals.processing;
+    const highestBucket = Math.max(
+      statusTotals.delivered,
+      statusTotals.shipped,
+      statusTotals.processing,
+      statusTotals.cancelled,
+      1
+    );
+
+    if (totalCountNode) totalCountNode.textContent = String(ORDERS_DATA.length);
+    if (deliveredCountNode) deliveredCountNode.textContent = String(ORDERS_DATA.filter((order) => order.status === 'delivered').length);
+    if (shippedCountNode) shippedCountNode.textContent = String(ORDERS_DATA.filter((order) => order.status === 'shipped').length);
+    if (pendingCountNode) pendingCountNode.textContent = String(ORDERS_DATA.filter((order) => order.status === 'processing').length);
+
+    if (grossRevenueNode) grossRevenueNode.textContent = formatPrice(grossRevenue);
+    if (deliveredRevenueNode) deliveredRevenueNode.textContent = formatPrice(statusTotals.delivered);
+
+    if (barDelivered) barDelivered.style.width = `${(statusTotals.delivered / highestBucket) * 100}%`;
+    if (barShipped) barShipped.style.width = `${(statusTotals.shipped / highestBucket) * 100}%`;
+    if (barProcessing) barProcessing.style.width = `${(statusTotals.processing / highestBucket) * 100}%`;
+    if (barCancelled) barCancelled.style.width = `${(statusTotals.cancelled / highestBucket) * 100}%`;
+  };
+
+  const renderPagination = (totalItems) => {
+    if (!paginationRoot) return;
+
+    const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+    const pageButtons = Array.from({ length: totalPages }, (_, index) => {
+      const page = index + 1;
+      return `<button type="button" class="admin-page-btn ${page === currentPage ? 'active' : ''}" data-page="${page}">${page}</button>`;
+    }).join('');
+
+    paginationRoot.innerHTML = `
+      <button type="button" class="admin-page-btn" data-page-nav="prev" ${currentPage === 1 ? 'disabled' : ''}>Prev</button>
+      ${pageButtons}
+      <button type="button" class="admin-page-btn" data-page-nav="next" ${currentPage === totalPages ? 'disabled' : ''}>Next</button>
+    `;
+  };
+
+  const render = () => {
+    const visibleOrders = getFilteredOrders();
+    const totalPages = Math.max(1, Math.ceil(visibleOrders.length / pageSize));
+    if (currentPage > totalPages) currentPage = totalPages;
+
+    const startIndex = (currentPage - 1) * pageSize;
+    const pagedOrders = visibleOrders.slice(startIndex, startIndex + pageSize);
+
+    if (visibleOrders.length === 0) {
+      tableRoot.innerHTML = `
+        <tr>
+          <td class="admin-empty" colspan="8">No orders found for the selected filters.</td>
+        </tr>
+      `;
+      renderPagination(0);
+      return;
+    }
+
+    const rowHtml = pagedOrders.map((order) => {
+      const itemCount = order.items.reduce((sum, item) => sum + (Number(item.qty) || 0), 0);
+
+      return `
+        <tr>
+          <td><strong>${order.id}</strong></td>
+          <td>${order.customer || 'Customer'}</td>
+          <td>${order.date}</td>
+          <td>${order.deliveryDate || order.eta}</td>
+          <td>${itemCount}</td>
+          <td><span class="admin-badge ${order.status}">${order.status}</span></td>
+          <td>${order.total}</td>
+          <td><a class="admin-link" href="track-order.html?order=${encodeURIComponent(order.id)}">Track</a></td>
+        </tr>
+      `;
+    }).join('');
+
+    const fillerCount = Math.max(0, pageSize - pagedOrders.length);
+    const fillerRows = Array.from({ length: fillerCount }, () => `
+      <tr class="admin-row-placeholder" aria-hidden="true">
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    `).join('');
+
+    tableRoot.innerHTML = `${rowHtml}${fillerRows}`;
+    renderPagination(visibleOrders.length);
+  };
+
+  statusButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      statusButtons.forEach((node) => node.classList.remove('active'));
+      button.classList.add('active');
+      activeStatus = button.dataset.adminStatus || 'all';
+      currentPage = 1;
+      render();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      query = searchInput.value.trim().toLowerCase();
+      currentPage = 1;
+      render();
+    });
+  }
+
+  if (paginationRoot) {
+    paginationRoot.addEventListener('click', (event) => {
+      const navButton = event.target.closest('[data-page-nav]');
+      const pageButton = event.target.closest('[data-page]');
+      const totalPages = Math.max(1, Math.ceil(getFilteredOrders().length / pageSize));
+
+      if (navButton) {
+        const direction = navButton.getAttribute('data-page-nav');
+        if (direction === 'prev' && currentPage > 1) currentPage -= 1;
+        if (direction === 'next' && currentPage < totalPages) currentPage += 1;
+        render();
+        return;
+      }
+
+      if (pageButton) {
+        const nextPage = Number(pageButton.getAttribute('data-page')) || 1;
+        currentPage = Math.min(Math.max(nextPage, 1), totalPages);
+        render();
+      }
+    });
+  }
+
+  syncStats();
+  render();
+}
+
 renderOrderListPage();
 renderTrackPage();
+renderAdminOrderListPage();

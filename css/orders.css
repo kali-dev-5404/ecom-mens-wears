@@ -524,6 +524,7 @@
   display: grid;
   justify-items: center;
   gap: 6px;
+  text-align: center;
 }
 
 .progress-icon {
@@ -566,6 +567,14 @@
   font-size: 13px;
   color: #6a6e6b;
   font-weight: 600;
+}
+
+.progress-meta {
+  font-size: 12px;
+  color: var(--text-light);
+  font-weight: 600;
+  line-height: 1.35;
+  min-height: 34px;
 }
 
 .progress-step.done .progress-label,
