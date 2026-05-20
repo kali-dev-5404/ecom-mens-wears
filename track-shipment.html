@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Track Shipment — ECOM</title>
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="css/track-shipment.css">
+</head>
+<body class="page-track-shipment">
+  <main class="track-page-shell">
+    <section class="track-card">
+      <div class="track-card-head">
+        <div class="track-icon"><i class="fa-solid fa-box-open"></i></div>
+        <h2>Track status of your shipment</h2>
+      </div>
+
+      <form id="trackForm" class="track-form">
+        <fieldset class="track-search-by">
+          <legend>Search By:</legend>
+          <label><input type="radio" name="searchBy" value="order" checked> Order ID</label>
+          <label><input type="radio" name="searchBy" value="awb"> AWB</label>
+        </fieldset>
+
+        <div class="track-field">
+          <input id="trackInput" type="text" placeholder="Enter Order ID to search" aria-label="Order or AWB" />
+        </div>
+
+        <div class="track-actions">
+          <button class="btn primary" type="submit">Submit</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="js/common.js"></script>
+  <script src="js/track-shipment.js"></script>
+</body>
+</html>
