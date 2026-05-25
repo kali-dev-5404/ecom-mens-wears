@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Ecom Menswear</title>
+  <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="assets/fontawesome/css/all.min.css"/>
+  <link rel="stylesheet" href="css/contact.css"/>
+</head>
+<body class="page-contact">
+  <header class="navbar-top">
+    <a class="nav-logo" href="index.html">
+      <div class="logo-icon"><img src="assets/logo.png" alt="Ecom logo"/></div>
+      <span class="logo-text">ECOM</span>
+    </a>
+    <div class="nav-search">
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <input type="text" placeholder="Search"/>
+    </div>
+    <div class="nav-icons">
+      <a class="nav-icon-link" href="wishlist.html" aria-label="Wishlist">
+        <i class="fa-regular fa-heart"></i>
+        <span class="nav-count" data-type="wishlist">0</span>
+      </a>
+      <a class="nav-icon-link" href="cart.html" aria-label="Cart">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="nav-count" data-type="cart">0</span>
+      </a>
+      <div class="account-wrap">
+        <a class="nav-icon-link account-trigger" href="login.html" aria-label="Account">
+          <i class="fa-regular fa-circle-user"></i>
+        </a>
+        <div class="account-dropdown">
+          <a href="#">Settings</a>
+          <a href="order-list.html">My Orders</a>
+          <a href="#" data-action="logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="navbar-bottom">
+    <a href="index.html">Home</a>
+    <a href="#">New Arrivals</a>
+    <div class="nav-drop">
+      <a href="#" class="has-drop">Mens <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="drop-menu">
+        <a href="#">Shirts</a>
+        <a href="#">Kurtas</a>
+        <a href="#">Sherwanis</a>
+        <a href="#">T-Shirts</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <a href="#" class="has-drop">Kids <i class="fa-solid fa-chevron-down"></i></a>
+      <div class="drop-menu">
+        <a href="#">Boys Wear</a>
+        <a href="#">Girls Wear</a>
+        <a href="#">Ethnic Sets</a>
+        <a href="#">Accessories</a>
+      </div>
+    </div>
+    <a class="active" href="contact.html">Contact</a>
+  </nav>
+
+  <main class="contact-main">
+    <section class="contact-panel">
+      <h1>Contact With Us</h1>
+      <p class="contact-sub">Need help with your order, shipping, or returns? Send us a message and our team will get back to you quickly.</p>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="contact-left">
+          <label class="field-wrap">
+            <span class="sr-only">Your Name</span>
+            <input type="text" name="name" placeholder="Your Name *" required />
+          </label>
+          <label class="field-wrap">
+            <span class="sr-only">Your Email</span>
+            <input type="email" name="email" placeholder="Your Email *" required />
+          </label>
+          <label class="field-wrap">
+            <span class="sr-only">Your Phone</span>
+            <input type="tel" name="phone" placeholder="Your Phone *" required />
+          </label>
+        </div>
+        <div class="contact-right">
+          <label class="field-wrap">
+            <span class="sr-only">Your Message</span>
+            <textarea name="message" placeholder="Your Message *" required></textarea>
+          </label>
+        </div>
+        <div class="contact-actions">
+          <button type="submit" class="contact-btn">Send Message</button>
+        </div>
+      </form>
+
+      <p id="contactStatus" class="contact-status" aria-live="polite"></p>
+
+      <div class="contact-cards">
+        <article class="info-card">
+          <h3>Contact</h3>
+          <p><strong>Support Team</strong><br/>Customer Care - +91 90000 11111</p>
+          <p><strong>Store Manager</strong><br/>Operations - +91 90000 22222</p>
+        </article>
+        <article class="info-card">
+          <h3>Communication Address</h3>
+          <p>No. 15/08, Market Road, Virudhunagar,<br/>Tamil Nadu - 626001</p>
+          <p><strong>Web:</strong> www.ecommenswear.com<br/><strong>Email:</strong> support@ecom.com</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-bottom">
+    <span>&copy; 2026 Ecom Textiles</span>
+    <span class="footer-secure"><i class="fa-solid fa-lock"></i> 100% Secure Powered By <img class="razorpay-logo" src="assets/payments/razorpay.svg" alt="Razorpay"/></span>
+    <div class="footer-payments"><img class="pay-strip" src="assets/payments/payment-strip.svg" alt="Accepted payment methods"/></div>
+  </footer>
+
+  <script src="js/common.js"></script>
+  <script src="js/contact.js"></script>
+</body>
+</html>
