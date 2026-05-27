@@ -9,13 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!form.checkValidity()) {
       status.textContent = 'Please fill all required fields correctly.';
-      status.style.color = '#f8d0c8';
+      status.classList.add('is-error');
+      status.classList.remove('is-success');
       form.reportValidity();
       return;
     }
 
     status.textContent = 'Thanks! Your message has been sent successfully.';
-    status.style.color = '#d6f0c4';
+    status.classList.add('is-success');
+    status.classList.remove('is-error');
     form.reset();
   });
 });
